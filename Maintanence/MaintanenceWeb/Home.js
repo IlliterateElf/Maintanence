@@ -48,6 +48,12 @@
                     badIndexes.push(i);
                 }
             }
+
+            for (let i in badIndexes) {
+                let row = String(badIndexes[i]+2);
+                let range = sheet.getRange("E" + row);
+                range.format.fill.color = "red";
+            }
             //let sheet = context.workbook.worksheets.getActiveWorksheet();
 
             //const rangeF = sheet.getRange("F2:F87");
