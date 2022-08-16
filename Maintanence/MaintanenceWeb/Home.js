@@ -6,11 +6,13 @@
         // Office is ready
         $(document).ready(function () {
             // The document is ready
-            $('#set-color').click(setColor);
+            $('#mal-rep').click(runMalRep);
+            $('#end-prot').click(runEndProt);
+            $('#end-mod').click(runEndMod);
         });
     });
 
-    async function setColor() {
+    async function runEndMod() {
         await Excel.run(async (context) => {
             let sheet = context.workbook.worksheets.getActiveWorksheet();
 
@@ -199,67 +201,81 @@
                 range = sheet.getRange(badRanges[i]);
                 range.format.fill.color = "red";
             }
-            //let sheet = context.workbook.worksheets.getActiveWorksheet();
 
-            //let rangeUpdate = sheet.getRange("E2:E90");
-            //rangeUpdate.load("values");
-            //await context.sync();
-            //let dateUpdate = [];
-            //for (let i = 0; i < rangeUpdate.values.length; i++) {
-            //    let newdate = Date.parse(rangeUpdate.values[i]);
-            //    newdate = newdate / (1000 * 60 * 60 * 24 * 30);
-            //    dateUpdate.push(newdate);
-            //}
+            await context.sync();
+        });
+    }
 
-            //let rangeOnline = sheet.getRange("H2:H90");
-            //rangeOnline.load("values");
-            //await context.sync();
-            //let dateOnline = [];
-            //for (let i = 0; i < rangeOnline.values.length; i++) {
-            //    if (rangeOnline.values[i] != "Online") {
-            //        let newdate = Date.parse(rangeOnline.values[i]);
-            //        newdate = newdate / (1000 * 60 * 60 * 24 * 30);
-            //        dateOnline.push(newdate);
-            //    }
-            //    else {
-            //        let newdate = new Date();
-            //        newdate = Date.parse(newdate);
-            //        newdate = newdate / (1000 * 60 * 60 * 24 * 30);
-            //        dateOnline.push(newdate);
-            //    }
-            //}
+    async function runEndProt() {
+        await Excel.run(async (context) => {
+            let sheet = context.workbook.worksheets.getActiveWorksheet();
 
-            //let badIndexes = [];
-            //for (let i = 0; i < dateUpdate.length; i++) {
-            //    if (dateOnline[i] - dateUpdate[i] > 1) {
-            //        badIndexes.push(i);
-            //    }
-            //}
+            let rangeUpdate = sheet.getRange("E2:E90");
+            rangeUpdate.load("values");
+            await context.sync();
+            let dateUpdate = [];
+            for (let i = 0; i < rangeUpdate.values.length; i++) {
+                let newdate = Date.parse(rangeUpdate.values[i]);
+                newdate = newdate / (1000 * 60 * 60 * 24 * 30);
+                dateUpdate.push(newdate);
+            }
 
-            //for (let i in badIndexes) {
-            //    let row = String(badIndexes[i] + 2);
-            //    let range = sheet.getRange("E" + row);
-            //    range.format.fill.color = "red";
-            //}
-            //let sheet = context.workbook.worksheets.getActiveWorksheet();
+            let rangeOnline = sheet.getRange("H2:H90");
+            rangeOnline.load("values");
+            await context.sync();
+            let dateOnline = [];
+            for (let i = 0; i < rangeOnline.values.length; i++) {
+                if (rangeOnline.values[i] != "Online") {
+                    let newdate = Date.parse(rangeOnline.values[i]);
+                    newdate = newdate / (1000 * 60 * 60 * 24 * 30);
+                    dateOnline.push(newdate);
+                }
+                else {
+                    let newdate = new Date();
+                    newdate = Date.parse(newdate);
+                    newdate = newdate / (1000 * 60 * 60 * 24 * 30);
+                    dateOnline.push(newdate);
+                }
+            }
 
-            //const rangeF = sheet.getRange("F2:F87");
-            //const conditionalFormatF = rangeF.conditionalFormats.add(
-            //    Excel.ConditionalFormatType.cellValue
-            //);
+            let badIndexes = [];
+            for (let i = 0; i < dateUpdate.length; i++) {
+                if (dateOnline[i] - dateUpdate[i] > 1) {
+                    badIndexes.push(i);
+                }
+            }
 
-            //// Set the fill of nonzeros to red.
-            //conditionalFormatF.cellValue.format.fill.color = "red";
-            //conditionalFormatF.cellValue.rule = { formula1: "=0", operator: "GreaterThan" };
+            for (let i in badIndexes) {
+                let row = String(badIndexes[i] + 2);
+                let range = sheet.getRange("E" + row);
+                range.format.fill.color = "red";
+            }
 
-            //const rangeI = sheet.getRange("I2:I87");
-            //const conditionalFormatI = rangeI.conditionalFormats.add(
-            //    Excel.ConditionalFormatType.cellValue
-            //);
+            await context.sync();
+        });
+    }
 
-            //// Set the fill of nonzero numbers to red.
-            //conditionalFormatI.cellValue.format.fill.color = "red";
-            //conditionalFormatI.cellValue.rule = { formula1: "=0", operator: "GreaterThan" };
+    async function runMalRep() {
+        await Excel.run(async (context) => {
+            let sheet = context.workbook.worksheets.getActiveWorksheet();
+
+            const rangeF = sheet.getRange("F2:F87");
+            const conditionalFormatF = rangeF.conditionalFormats.add(
+                Excel.ConditionalFormatType.cellValue
+            );
+
+            // Set the fill of nonzeros to red.
+            conditionalFormatF.cellValue.format.fill.color = "red";
+            conditionalFormatF.cellValue.rule = { formula1: "=0", operator: "GreaterThan" };
+
+            const rangeI = sheet.getRange("I2:I87");
+            const conditionalFormatI = rangeI.conditionalFormats.add(
+                Excel.ConditionalFormatType.cellValue
+            );
+
+            // Set the fill of nonzero numbers to red.
+            conditionalFormatI.cellValue.format.fill.color = "red";
+            conditionalFormatI.cellValue.rule = { formula1: "=0", operator: "GreaterThan" };
 
             await context.sync();
         });
