@@ -20,7 +20,7 @@
             let dateUpdate = [];
             for (let i = 0; i < rangeUpdate.values.length; i++) {
                 let newdate = Date.parse(rangeUpdate.values[i]);
-                newdate = newdate / (1000*60*60*24*30);
+                newdate = newdate / (1000 * 60 * 60 * 24 * 30);
                 dateUpdate.push(newdate);
             }
 
@@ -32,7 +32,7 @@
                 if (rangeOnline.values[i] != "Online") {
                     let newdate = Date.parse(rangeOnline.values[i]);
                     newdate = newdate / (1000 * 60 * 60 * 24 * 30);
-                    dateOnline.push(newdate);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                    dateOnline.push(newdate);
                 }
                 else {
                     let newdate = new Date();
@@ -50,7 +50,7 @@
             }
 
             for (let i in badIndexes) {
-                let row = String(badIndexes[i]+2);
+                let row = String(badIndexes[i] + 2);
                 let range = sheet.getRange("E" + row);
                 range.format.fill.color = "red";
             }

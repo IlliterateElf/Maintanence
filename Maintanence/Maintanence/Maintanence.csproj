@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3EC1EB06-519F-4DA3-9CDD-9A4C6688D0C4}</ProjectGuid>
+    <ProjectGuid>{EE5153B0-B5EA-46AA-82B8-287C8132CFB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Maintanence</RootNamespace>
@@ -13,11 +13,11 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
-    <AppFeaturePartId>{0be7da36-f188-49ca-a9be-9012ac3bdb19}</AppFeaturePartId>
-    <WspPartId>{77a8617f-3356-4eec-8d38-02f738bfbd65}</WspPartId>
-    <WorkflowPartId>{f3204a25-45fe-4fac-902a-62d42fcf39ea}</WorkflowPartId>
-    <CspkgPartId>{b3330842-2ff5-4777-98b1-40d3f8cc5553}</CspkgPartId>
-    <SqlPackagePartId>{b58015e6-cd36-4209-b032-642eb133353d}</SqlPackagePartId>
+    <AppFeaturePartId>{4242626e-1c14-4d07-827f-9dd2361862f5}</AppFeaturePartId>
+    <WspPartId>{77b236d2-3733-4fd1-ab28-17575addb8eb}</WspPartId>
+    <WorkflowPartId>{5ca4cdb9-cf35-4ea8-8b44-1c5ab508cf7c}</WorkflowPartId>
+    <CspkgPartId>{0f7f12b6-ae7a-4676-af96-ba4e2ab792e5}</CspkgPartId>
+    <SqlPackagePartId>{3d808a71-9a77-401d-8eb9-2c6f41adc033}</SqlPackagePartId>
     <ProjectMode>OfficeApp</ProjectMode>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <MinimumOfficeToolsVersion>14.0</MinimumOfficeToolsVersion>
@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="MaintanenceManifest\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{7436b4f4-ef0e-4793-9c4d-7549aa28388a}</SharePointProjectItemId>
+      <SharePointProjectItemId>{43c74893-b489-4b1d-9a48-2c707ff3ac89}</SharePointProjectItemId>
     </None>
     <Content Include="MaintanenceManifest\Maintanence.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MaintanenceWeb\MaintanenceWeb.csproj">
-      <Project>{A1BAC670-C27D-47EE-BB29-32DF6E403405}</Project>
+      <Project>{F73A4D6B-B326-417A-A8DA-CB6CA1E80684}</Project>
       <Name>MaintanenceWeb</Name>
       <Private>True</Private>
       <RoleType>Web</RoleType>
