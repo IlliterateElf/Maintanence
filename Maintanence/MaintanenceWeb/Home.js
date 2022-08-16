@@ -63,7 +63,142 @@
                 }
             }
 
-            console.log(badRanges);
+            //Check Device Control
+            range = sheet.getRange("I2:I87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] == "Enabled") {
+                    badRanges.push("I" + String(i + 2));
+                }
+            }
+
+            //Check Power User
+            range = sheet.getRange("J2:J87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] != "Enabled") {
+                    badRanges.push("J" + String(i + 2));
+                }
+            }
+
+            //Check Exchange
+            range = sheet.getRange("K2:K87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] == "Enabled") {
+                    badRanges.push("K" + String(i + 2));
+                }
+            }
+
+            //Check Advanced Threat Control
+            range = sheet.getRange("L2:L87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] != "Enabled") {
+                    badRanges.push("L" + String(i + 2));
+                }
+            }
+
+            //Check Encryption
+            range = sheet.getRange("M2:M87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] == "Enabled") {
+                    badRanges.push("M" + String(i + 2));
+                }
+            }
+
+            //Check EDR Sensor
+            range = sheet.getRange("N2:N87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] != "Enabled") {
+                    badRanges.push("N" + String(i + 2));
+                }
+            }
+
+            //Check Patch Management
+            range = sheet.getRange("O2:O87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] == "Enabled") {
+                    badRanges.push("O" + String(i + 2));
+                }
+            }
+
+            //Check Hyper Detect
+            range = sheet.getRange("P2:P87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] != "Enabled") {
+                    badRanges.push("P" + String(i + 2));
+                }
+            }
+
+            //Check Sandbox Analyzer
+            range = sheet.getRange("Q2:Q87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] != "Enabled") {
+                    badRanges.push("Q" + String(i + 2));
+                }
+            }
+
+            //Check Container Protection
+            range = sheet.getRange("R2:R87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (vals[i] == "Enabled") {
+                    badRanges.push("R" + String(i + 2));
+                }
+            }
+
+            //Check Scan Mode
+            range = sheet.getRange("S2:S87");
+            range.load("values");
+            await context.sync();
+
+            vals = range.values;
+            for (let i = 0; i < vals.length; i++) {
+                if (!(vals[i] == "Local" || vals[i] == "Hybrid")) {
+                    badRanges.push("S" + String(i + 2));
+                }
+            }
+
+            for (let i = 0; i < badRanges.length; i++) {
+                range = sheet.getRange(badRanges[i]);
+                range.format.fill.color = "red";
+            }
             //let sheet = context.workbook.worksheets.getActiveWorksheet();
 
             //let rangeUpdate = sheet.getRange("E2:E90");
