@@ -1,2 +1,2 @@
 bin\Debug\OfficeAppManifests\MaintanenceManifest.xml
-C:\Users\samuel\Documents\GitHub\Maintanence\Maintanence\Maintanence\bin\Debug\Maintanence.debugapp
+C:\Users\joseph\source\repos\Maintanence\Maintanence\bin\Debug\Maintanence.debugapp

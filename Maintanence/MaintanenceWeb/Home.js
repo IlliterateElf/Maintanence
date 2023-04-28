@@ -17,7 +17,7 @@
             let sheet = context.workbook.worksheets.getActiveWorksheet();
 
             //Check AntiMal
-            let range = sheet.getRange("D2:D87");
+            let range = sheet.getRange("D2:D500");
             range.load("values");
             await context.sync();
 
@@ -30,7 +30,7 @@
             }
 
             //Check Network Attack Defense
-            range = sheet.getRange("E2:E87");
+            range = sheet.getRange("E2:E500");
             range.load("values");
             await context.sync();
 
@@ -42,7 +42,7 @@
             }
 
             //Check Firewall
-            range = sheet.getRange("G2:G87");
+            range = sheet.getRange("G2:G500");
             range.load("values");
             await context.sync();
 
@@ -54,7 +54,7 @@
             }
 
             //Check Content Control
-            range = sheet.getRange("H2:H87");
+            range = sheet.getRange("H2:H500");
             range.load("values");
             await context.sync();
 
@@ -66,7 +66,7 @@
             }
 
             //Check Device Control
-            range = sheet.getRange("I2:I87");
+            range = sheet.getRange("I2:I500");
             range.load("values");
             await context.sync();
 
@@ -78,7 +78,7 @@
             }
 
             //Check Power User
-            range = sheet.getRange("J2:J87");
+            range = sheet.getRange("J2:J500");
             range.load("values");
             await context.sync();
 
@@ -90,7 +90,7 @@
             }
 
             //Check Exchange
-            range = sheet.getRange("K2:K87");
+            range = sheet.getRange("K2:K500");
             range.load("values");
             await context.sync();
 
@@ -102,7 +102,7 @@
             }
 
             //Check Advanced Threat Control
-            range = sheet.getRange("L2:L87");
+            range = sheet.getRange("L2:L500");
             range.load("values");
             await context.sync();
 
@@ -114,7 +114,7 @@
             }
 
             //Check Encryption
-            range = sheet.getRange("M2:M87");
+            range = sheet.getRange("M2:M500");
             range.load("values");
             await context.sync();
 
@@ -126,7 +126,7 @@
             }
 
             //Check EDR Sensor
-            range = sheet.getRange("N2:N87");
+            range = sheet.getRange("N2:N500");
             range.load("values");
             await context.sync();
 
@@ -138,7 +138,7 @@
             }
 
             //Check Patch Management
-            range = sheet.getRange("O2:O87");
+            range = sheet.getRange("O2:O500");
             range.load("values");
             await context.sync();
 
@@ -150,7 +150,7 @@
             }
 
             //Check Hyper Detect
-            range = sheet.getRange("P2:P87");
+            range = sheet.getRange("P2:P500");
             range.load("values");
             await context.sync();
 
@@ -162,7 +162,7 @@
             }
 
             //Check Sandbox Analyzer
-            range = sheet.getRange("Q2:Q87");
+            range = sheet.getRange("Q2:Q500");
             range.load("values");
             await context.sync();
 
@@ -174,7 +174,7 @@
             }
 
             //Check Container Protection
-            range = sheet.getRange("R2:R87");
+            range = sheet.getRange("R2:R500");
             range.load("values");
             await context.sync();
 
@@ -186,7 +186,7 @@
             }
 
             //Check Scan Mode
-            range = sheet.getRange("S2:S87");
+            range = sheet.getRange("T2:T500");
             range.load("values");
             await context.sync();
 
@@ -210,7 +210,7 @@
         await Excel.run(async (context) => {
             let sheet = context.workbook.worksheets.getActiveWorksheet();
 
-            let rangeUpdate = sheet.getRange("E2:E90");
+            let rangeUpdate = sheet.getRange("E2:E500");
             rangeUpdate.load("values");
             await context.sync();
             let dateUpdate = [];
@@ -220,7 +220,7 @@
                 dateUpdate.push(newdate);
             }
 
-            let rangeOnline = sheet.getRange("H2:H90");
+            let rangeOnline = sheet.getRange("H2:H500");
             rangeOnline.load("values");
             await context.sync();
             let dateOnline = [];
@@ -259,7 +259,7 @@
         await Excel.run(async (context) => {
             let sheet = context.workbook.worksheets.getActiveWorksheet();
 
-            const rangeF = sheet.getRange("F2:F87");
+            const rangeF = sheet.getRange("F2:F500");
             const conditionalFormatF = rangeF.conditionalFormats.add(
                 Excel.ConditionalFormatType.cellValue
             );
@@ -268,7 +268,7 @@
             conditionalFormatF.cellValue.format.fill.color = "red";
             conditionalFormatF.cellValue.rule = { formula1: "=0", operator: "GreaterThan" };
 
-            const rangeI = sheet.getRange("I2:I87");
+            const rangeI = sheet.getRange("I2:I500");
             const conditionalFormatI = rangeI.conditionalFormats.add(
                 Excel.ConditionalFormatType.cellValue
             );
